@@ -7,6 +7,7 @@ import sk.stuba.fei.uim.oop.tiles.Tile;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
@@ -35,7 +36,6 @@ public class GameLogic extends UniversalAdapter{
         mainFrame.add(board);
         updateBoardSizeLabel();
         updateLevelLabel();
-        System.out.println("constructyed");
     }
 
     private void updateLevelLabel(){
@@ -69,7 +69,6 @@ public class GameLogic extends UniversalAdapter{
         this.board.addMouseMotionListener(this);
         this.board.addMouseListener(this);
         this.updateMainFrame();
-        System.out.println("init done");
     }
 
     private void checkCorrectness(){
@@ -116,5 +115,14 @@ public class GameLogic extends UniversalAdapter{
         }
         ((Tile) current).rotate();
         this.board.repaint();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+        if(actionEvent.getActionCommand().equals("Restart")){
+            this.gameRestart();
+            this.board.repaint();
+        }
+
     }
 }
