@@ -108,4 +108,13 @@ public class GameLogic extends UniversalAdapter{
         this.board.repaint();
     }
 
+    @Override
+    public void mousePressed(MouseEvent mouseEvent) {
+        Component current = this.board.getComponentAt(mouseEvent.getX(), mouseEvent.getY());
+        if (!(current instanceof Tile)) {
+            return;
+        }
+        ((Tile) current).rotate();
+        this.board.repaint();
+    }
 }

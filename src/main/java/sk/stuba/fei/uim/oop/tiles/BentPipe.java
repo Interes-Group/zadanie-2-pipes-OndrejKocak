@@ -8,7 +8,7 @@ public class BentPipe extends Tile{
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D)g.create();
-        g2d.rotate(Math.toRadians(0), (double) this.getWidth() /2, (double) this.getHeight() /2);
+        g2d.rotate(Math.toRadians(this.angle), (double) this.getWidth() /2, (double) this.getHeight() /2);
 
         g2d.setColor(Color.BLACK);
         if(this.highlight){
