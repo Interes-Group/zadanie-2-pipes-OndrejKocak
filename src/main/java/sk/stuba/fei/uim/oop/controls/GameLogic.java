@@ -77,10 +77,15 @@ public class GameLogic extends UniversalAdapter{
 
     @Override
     public void stateChanged(ChangeEvent changeEvent) {
-        this.currentBoardSize = ((JSlider) changeEvent.getSource()).getValue();
-        this.updateBoardSizeLabel();
-        this.initNewBoard();
-        this.mainFrame.requestFocus();
+        int newSize = ((JSlider) changeEvent.getSource()).getValue();
+        if(newSize != this.currentBoardSize){
+            this.currentBoardSize = newSize;
+            this.updateBoardSizeLabel();
+            this.initNewBoard();
+            this.mainFrame.setFocusable(true);
+            this.mainFrame.requestFocus();
+        }
+
     }
 
     @Override
