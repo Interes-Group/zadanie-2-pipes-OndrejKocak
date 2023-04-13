@@ -1,7 +1,5 @@
 package sk.stuba.fei.uim.oop.board;
 
-import sk.stuba.fei.uim.oop.tiles.BentPipe;
-import sk.stuba.fei.uim.oop.tiles.Tile;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,8 +9,8 @@ import java.util.List;
 public class Board extends JPanel {
 
     private Node[][] board;
-    private int boardSize;
-    private Random random;
+    private final int boardSize;
+    private final Random random;
     private Node start;
     private Node finish;
 
@@ -24,7 +22,6 @@ public class Board extends JPanel {
 
     private void generateBoard() {
         this.initBoard();
-
         HashSet<Node> visitedNodes = new HashSet<>();
         List<Node> stack = new ArrayList<>();
         stack.add(start);
@@ -54,8 +51,10 @@ public class Board extends JPanel {
     }
     private void trackPath(){
         Node node = finish.getPrevious();
+        Node next = finish;
         while (node.getPrevious() != null){
-            node.setTile(new BentPipe());
+            node.setState(next);
+            next = node;
             node = node.getPrevious();
         }
     }
@@ -94,9 +93,9 @@ public class Board extends JPanel {
 
     private void setStartEnd() {
         this.start = board[0][this.random.nextInt(this.boardSize)];
-        start.selectTile(true);
+        start.setState(State.START);
         this.finish = board[boardSize - 1][this.random.nextInt(this.boardSize)];
-        finish.selectTile(true);
+        finish.setState(State.FINISH);
     }
 
 }

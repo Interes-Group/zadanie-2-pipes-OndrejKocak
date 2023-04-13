@@ -5,5 +5,5 @@ public enum State {
     FINISH,
     STRAIGHT,
     BENT,
-    EMPTY
+    EMPTY;
 }
