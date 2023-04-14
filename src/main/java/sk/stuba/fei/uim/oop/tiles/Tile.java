@@ -1,5 +1,6 @@
 package sk.stuba.fei.uim.oop.tiles;
 
+import lombok.Getter;
 import lombok.Setter;
 import sk.stuba.fei.uim.oop.board.Direction;
 
@@ -15,6 +16,7 @@ public class Tile extends JPanel {
     @Setter
     protected boolean water;
     protected int angle;
+    @Getter
     protected List<Direction> connectionPoints;
     private Random random;
 

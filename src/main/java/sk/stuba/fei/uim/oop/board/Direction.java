@@ -9,8 +9,8 @@ public enum Direction {
     LEFT(-2);
 
     @Getter
-    private final int x;
-    Direction(int x) {
-        this.x = x;
+    private final int value;
+    Direction(int value) {
+        this.value = value;
     }
 }

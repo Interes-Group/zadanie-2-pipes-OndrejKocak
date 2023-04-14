@@ -32,7 +32,7 @@ public class Node {
         this.setTile();
     }
     public void setState(Node next){
-        if((getNeighbourDirection(previous).getX() + getNeighbourDirection(next).getX()) == 0){
+        if((getNeighbourDirection(previous).getValue() + getNeighbourDirection(next).getValue()) == 0){
             this.state = State.STRAIGHT;
         }
         else {
