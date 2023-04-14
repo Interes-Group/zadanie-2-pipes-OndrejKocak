@@ -46,7 +46,7 @@ public class Node {
     private void setTile(){
         switch (this.state){
             case START:
-                this.tile = new StartEnd();
+                this.tile = new StartEnd(true);
                 break;
             case FINISH:
                 this.tile = new StartEnd();

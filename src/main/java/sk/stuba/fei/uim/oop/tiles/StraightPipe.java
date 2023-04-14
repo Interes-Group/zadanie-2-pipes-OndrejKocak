@@ -26,7 +26,12 @@ public class StraightPipe extends Tile{
         g2d.setStroke(new BasicStroke(4));
         g2d.drawRect(0, (int)this.getHeight()/2-this.getHeight()/6, this.getWidth(), (int)this.getWidth()/3);
         g2d.setStroke(new BasicStroke(1));
-        g2d.setColor(Color.GRAY);
+        if(water){
+            g2d.setColor(Color.BLUE);
+        }
+        else {
+            g2d.setColor(Color.GRAY);
+        }
         g2d.fillRect(0, (int)this.getHeight()/2-this.getHeight()/6, this.getWidth(), (int)this.getWidth()/3);
         g2d.setColor(Color.BLACK);
         g2d.dispose();

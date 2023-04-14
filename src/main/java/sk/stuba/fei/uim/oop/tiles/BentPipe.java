@@ -26,7 +26,12 @@ public class BentPipe extends Tile{
         g2d.drawRect(0, (int)this.getHeight()/2-this.getHeight()/6, this.getWidth()/3*2, (int)this.getWidth()/3);
         g2d.drawRect((int)this.getHeight()/2-this.getHeight()/6, 0, this.getWidth()/3, (int)this.getWidth()/3*2);
         g2d.setStroke(new BasicStroke(1));
-        g2d.setColor(Color.GRAY);
+        if(water){
+            g2d.setColor(Color.BLUE);
+        }
+        else {
+            g2d.setColor(Color.GRAY);
+        }
         g2d.fillRect(0, (int)this.getHeight()/2-this.getHeight()/6, this.getWidth()/3*2, (int)this.getWidth()/3);
         g2d.fillRect((int)this.getHeight()/2-this.getHeight()/6, 0, this.getWidth()/3, (int)this.getWidth()/3*2);
         g2d.setColor(Color.BLACK);
