@@ -1,8 +1,15 @@
 package sk.stuba.fei.uim.oop.tiles;
 
+import sk.stuba.fei.uim.oop.board.Direction;
+
 import java.awt.*;
 
 public class StartEnd extends Tile{
+    public StartEnd() {
+        super();
+        this.connectionPoints.add(Direction.LEFT);
+        this.randomRotate();
+    }
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);

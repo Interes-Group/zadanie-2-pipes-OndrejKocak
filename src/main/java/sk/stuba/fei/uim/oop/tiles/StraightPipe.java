@@ -1,9 +1,17 @@
 package sk.stuba.fei.uim.oop.tiles;
 
+import sk.stuba.fei.uim.oop.board.Direction;
+
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 
 public class StraightPipe extends Tile{
+    public StraightPipe() {
+        super();
+        this.connectionPoints.add(Direction.LEFT);
+        this.connectionPoints.add(Direction.RIGHT);
+        this.randomRotate();
+    }
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);

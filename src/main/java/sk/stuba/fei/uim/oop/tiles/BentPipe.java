@@ -1,9 +1,16 @@
 package sk.stuba.fei.uim.oop.tiles;
 
+import sk.stuba.fei.uim.oop.board.Direction;
+
 import java.awt.*;
 
 public class BentPipe extends Tile{
-
+    public BentPipe() {
+        super();
+        this.connectionPoints.add(Direction.LEFT);
+        this.connectionPoints.add(Direction.UP);
+        this.randomRotate();
+    }
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
