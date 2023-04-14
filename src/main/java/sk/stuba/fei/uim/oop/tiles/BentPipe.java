@@ -23,8 +23,8 @@ public class BentPipe extends Tile{
             this.highlight=false;
         }
         g2d.setStroke(new BasicStroke(4));
-        g2d.drawRect(0, (int)this.getHeight()/2-this.getHeight()/6, this.getWidth()/3*2, (int)this.getWidth()/3);
-        g2d.drawRect((int)this.getHeight()/2-this.getHeight()/6, 0, this.getWidth()/3, (int)this.getWidth()/3*2);
+        g2d.drawRect(0, this.getHeight() /2-this.getHeight()/6, this.getWidth()/3*2, this.getWidth() /3);
+        g2d.drawRect(this.getHeight() /2-this.getHeight()/6, 0, this.getWidth()/3, this.getWidth() /3*2);
         g2d.setStroke(new BasicStroke(1));
         if(water){
             g2d.setColor(Color.BLUE);
@@ -32,8 +32,8 @@ public class BentPipe extends Tile{
         else {
             g2d.setColor(Color.GRAY);
         }
-        g2d.fillRect(0, (int)this.getHeight()/2-this.getHeight()/6, this.getWidth()/3*2, (int)this.getWidth()/3);
-        g2d.fillRect((int)this.getHeight()/2-this.getHeight()/6, 0, this.getWidth()/3, (int)this.getWidth()/3*2);
+        g2d.fillRect(0, this.getHeight() /2-this.getHeight()/6, this.getWidth()/3*2, this.getWidth() /3);
+        g2d.fillRect(this.getHeight() /2-this.getHeight()/6, 0, this.getWidth()/3, this.getWidth() /3*2);
         g2d.setColor(Color.BLACK);
         g2d.dispose();
     }

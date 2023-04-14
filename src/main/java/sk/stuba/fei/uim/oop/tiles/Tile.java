@@ -18,7 +18,7 @@ public class Tile extends JPanel {
     protected int angle;
     @Getter
     protected List<Direction> connectionPoints;
-    private Random random;
+    private final Random random;
 
     public Tile() {
         this.connectionPoints = new ArrayList<>();
