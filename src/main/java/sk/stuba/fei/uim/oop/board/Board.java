@@ -1,6 +1,9 @@
 package sk.stuba.fei.uim.oop.board;
 
 
+
+import sk.stuba.fei.uim.oop.tiles.Tile;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
@@ -25,12 +28,11 @@ public class Board extends JPanel {
         HashSet<Node> visitedNodes = new HashSet<>();
         List<Node> stack = new ArrayList<>();
         stack.add(start);
-        while(!stack.isEmpty()){
+        while(stack.get(0)!=finish){
             Node currentNode = stack.remove(0);
             if (visitedNodes.contains(currentNode)) {
                 continue;
             }
-
             ArrayList<Node> allNeighbours = currentNode.getAllNeighbour();
             Collections.shuffle(allNeighbours);
             allNeighbours.forEach(neighbour -> {
@@ -84,8 +86,8 @@ public class Board extends JPanel {
                 }
             }
         }
-        this.setLayout(new GridLayout(boardSize, boardSize));
 
+        this.setLayout(new GridLayout(boardSize, boardSize));
         this.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
         this.setBackground(Color.MAGENTA);
 
@@ -93,9 +95,35 @@ public class Board extends JPanel {
 
     private void setStartEnd() {
         this.start = board[0][this.random.nextInt(this.boardSize)];
-        start.setState(State.START);
+        this.start.setState(State.START);
         this.finish = board[boardSize - 1][this.random.nextInt(this.boardSize)];
-        finish.setState(State.FINISH);
+        this.finish.setState(State.FINISH);
     }
 
+    public boolean checkCorrectness(){
+        Direction nextDirection = this.start.getTile().getConnectionPoints().get(0);
+        Node next = this.start.getNeighbour(nextDirection);
+        while(next != null){
+            boolean connection = false;
+            Tile nextTile = next.getTile();
+            List<Direction> nextTileConnectionPoints = new ArrayList<>(nextTile.getConnectionPoints());
+            for(Direction direction : nextTileConnectionPoints){
+                if((nextDirection.getValue()+direction.getValue()) == 0){
+                    nextTileConnectionPoints.remove(direction);
+                    nextTile.setWater(true);
+                    if(next == this.finish){
+                        return true;
+                    }
+                    connection = true;
+                    break;
+                }
+            }
+            if(!connection){
+                return false;
+            }
+            nextDirection = nextTileConnectionPoints.get(0);
+            next = next.getNeighbour(nextDirection);
+        }
+        return false;
+    }
 }

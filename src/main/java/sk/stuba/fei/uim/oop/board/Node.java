@@ -6,6 +6,7 @@ import sk.stuba.fei.uim.oop.tiles.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Node {
@@ -73,4 +74,9 @@ public class Node {
         }
         return null;
     }
+
+    public Node getNeighbour(Direction direction){
+        return this.neighbours.get(direction);
+    }
+
 }

@@ -72,7 +72,11 @@ public class GameLogic extends UniversalAdapter{
     }
 
     private void checkCorrectness(){
-        System.out.println("ENTER pressed");
+        if(this.board.checkCorrectness()){
+            this.level++;
+            this.initNewBoard();
+            this.updateLevelLabel();
+        }
     }
 
     @Override
@@ -119,6 +123,7 @@ public class GameLogic extends UniversalAdapter{
             return;
         }
         ((Tile) current).rotate();
+        ((Tile) current).setHighlight(true);
         this.board.repaint();
     }
 
@@ -126,8 +131,9 @@ public class GameLogic extends UniversalAdapter{
     public void actionPerformed(ActionEvent actionEvent) {
         if(actionEvent.getActionCommand().equals("Restart")){
             this.gameRestart();
-            this.board.repaint();
+        } else if (actionEvent.getActionCommand().equals("Check Correctness")) {
+            this.checkCorrectness();
         }
-
+        this.board.repaint();
     }
 }
