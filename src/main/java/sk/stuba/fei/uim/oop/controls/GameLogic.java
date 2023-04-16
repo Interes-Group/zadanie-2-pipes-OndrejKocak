@@ -12,15 +12,15 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 public class GameLogic extends UniversalAdapter{
-    private JFrame mainFrame;
+    private final JFrame mainFrame;
     private static final int INITIAL_BOARD_SIZE = 8;
     @Getter
-    private JLabel currentBoardSizeLabel;
+    private final JLabel currentBoardSizeLabel;
     private int currentBoardSize;
     private Board board;
     private int level;
     @Getter
-    private JLabel levelLabel;
+    private final JLabel levelLabel;
     public GameLogic(JFrame mainFrame) {
         this.mainFrame = mainFrame;
         this.level = 1;
