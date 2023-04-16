@@ -35,6 +35,7 @@ public class StartEnd extends Tile{
         g2d.setStroke(new BasicStroke(1));
         if(this.water || this.start){
             g2d.setColor(Color.BLUE);
+            this.water = false;
         }
         else {
             g2d.setColor(Color.GRAY);

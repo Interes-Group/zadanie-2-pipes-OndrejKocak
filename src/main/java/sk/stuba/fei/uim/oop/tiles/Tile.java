@@ -21,6 +21,7 @@ public class Tile extends JPanel {
     private final Random random;
 
     public Tile() {
+        this.angle = 0;
         this.connectionPoints = new ArrayList<>();
         this.random = new Random();
         this.setBackground(Color.WHITE);

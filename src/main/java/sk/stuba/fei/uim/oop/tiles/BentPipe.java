@@ -28,6 +28,7 @@ public class BentPipe extends Tile{
         g2d.setStroke(new BasicStroke(1));
         if(water){
             g2d.setColor(Color.BLUE);
+            this.water = false;
         }
         else {
             g2d.setColor(Color.GRAY);
