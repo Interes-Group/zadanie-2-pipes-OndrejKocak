@@ -16,8 +16,6 @@ public class Node {
     @Setter
     @Getter
     private Node previous;
-
-    @Getter
     private State state;
 
     public Node() {
@@ -27,24 +25,22 @@ public class Node {
         this.setTile();
     }
 
-    public void setState(State state){
+    public void setState(State state) {
         this.state = state;
         this.setTile();
     }
-    public void setState(Node next){
-        if((getNeighbourDirection(previous).getValue() + getNeighbourDirection(next).getValue()) == 0){
+
+    public void setState(Node next) {
+        if ((getNeighbourDirection(previous).getValue() + getNeighbourDirection(next).getValue()) == 0) {
             this.state = State.STRAIGHT;
-        }
-        else {
+        } else {
             this.state = State.BENT;
         }
-       this.setTile();
+        this.setTile();
     }
-    public void addNeighbour(Direction direction, Node node) {
-        this.neighbours.put(direction, node);
-    }
-    private void setTile(){
-        switch (this.state){
+
+    private void setTile() {
+        switch (this.state) {
             case START:
                 this.tile = new StartEnd(true);
                 break;
@@ -61,20 +57,25 @@ public class Node {
                 this.tile = new Tile();
         }
     }
+
+    public void addNeighbour(Direction direction, Node node) {
+        this.neighbours.put(direction, node);
+    }
+
     public ArrayList<Node> getAllNeighbour() {
         return new ArrayList<>(this.neighbours.values());
     }
 
-    private Direction getNeighbourDirection(Node neighbour){
-        for(Map.Entry<Direction, Node> entry : this.neighbours.entrySet()){
-            if(entry.getValue().equals(neighbour)){
+    private Direction getNeighbourDirection(Node neighbour) {
+        for (Map.Entry<Direction, Node> entry : this.neighbours.entrySet()) {
+            if (entry.getValue().equals(neighbour)) {
                 return entry.getKey();
             }
         }
         return null;
     }
 
-    public Node getNeighbour(Direction direction){
+    public Node getNeighbour(Direction direction) {
         return this.neighbours.get(direction);
     }
 
