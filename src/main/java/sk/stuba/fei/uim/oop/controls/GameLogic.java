@@ -85,7 +85,7 @@ public class GameLogic extends UniversalAdapter{
         if(newSize != this.currentBoardSize){
             this.currentBoardSize = newSize;
             this.updateBoardSizeLabel();
-            this.initNewBoard();
+            this.gameRestart();
             this.mainFrame.setFocusable(true);
             this.mainFrame.requestFocus();
         }
