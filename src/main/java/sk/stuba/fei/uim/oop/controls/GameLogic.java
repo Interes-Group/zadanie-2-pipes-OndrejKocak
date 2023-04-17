@@ -122,9 +122,11 @@ public class GameLogic extends UniversalAdapter{
         if (!(current instanceof Tile)) {
             return;
         }
-        ((Tile) current).rotate();
-        ((Tile) current).setHighlight(true);
-        this.board.repaint();
+        if(((Tile) current).isPlayable()){
+            ((Tile) current).rotate();
+            ((Tile) current).setHighlight(true);
+            this.board.repaint();
+        }
     }
 
     @Override
