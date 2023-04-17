@@ -103,6 +103,7 @@ public class GameLogic extends UniversalAdapter{
                 break;
             case KeyEvent.VK_ENTER:
                 this.checkCorrectness();
+                this.board.repaint();
         }
     }
 
