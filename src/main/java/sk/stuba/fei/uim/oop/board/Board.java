@@ -44,12 +44,7 @@ public class Board extends JPanel {
             visitedNodes.add(currentNode);
         }
         this.trackPath();
-        for (int i = 0; i < this.boardSize; i++) {
-            for (int j = 0; j < this.boardSize; j++) {
-                Node node = board[i][j];
-                this.add(node.getTile());
-            }
-        }
+        this.fillGrid();
     }
     private void trackPath(){
         Node node = finish.getPrevious();
@@ -58,6 +53,15 @@ public class Board extends JPanel {
             node.setState(next);
             next = node;
             node = node.getPrevious();
+        }
+    }
+
+    private void fillGrid(){
+        for (int i = 0; i < this.boardSize; i++) {
+            for (int j = 0; j < this.boardSize; j++) {
+                Node node = board[i][j];
+                this.add(node.getTile());
+            }
         }
     }
 
