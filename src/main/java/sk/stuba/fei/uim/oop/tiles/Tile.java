@@ -66,11 +66,22 @@ public class Tile extends JPanel {
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
+
         if(this.highlight){
             g.setColor(Color.GREEN);
             ((Graphics2D)g).setStroke(new BasicStroke(10));
             g.drawRect(0,0, this.getWidth(), this.getHeight());
             this.highlight = false;
         }
+
+
+    }
+
+    protected Graphics2D paintSetup(Graphics g){
+        Graphics2D g2d = (Graphics2D)g.create();
+        g2d.rotate(Math.toRadians(this.angle), (double) this.getWidth() /2, (double) this.getHeight() /2);
+        g2d.setColor(Color.BLACK);
+        g2d.setStroke(new BasicStroke(4));
+        return g2d;
     }
 }

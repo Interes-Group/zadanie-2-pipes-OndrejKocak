@@ -15,11 +15,7 @@ public class BentPipe extends Tile{
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        Graphics2D g2d = (Graphics2D)g.create();
-        g2d.rotate(Math.toRadians(this.angle), (double) this.getWidth() /2, (double) this.getHeight() /2);
-
-        g2d.setColor(Color.BLACK);
-        g2d.setStroke(new BasicStroke(4));
+        Graphics2D g2d = this.paintSetup(g);
         g2d.drawRect(0, this.getHeight() /2-this.getHeight()/6, this.getWidth()/3*2, this.getWidth() /3);
         g2d.drawRect(this.getHeight() /2-this.getHeight()/6, 0, this.getWidth()/3, this.getWidth() /3*2);
         g2d.setStroke(new BasicStroke(1));
