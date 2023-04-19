@@ -20,11 +20,11 @@ public class Board extends JPanel {
     public Board(int size) {
         this.random = new Random();
         this.boardSize = size;
+        this.initBoard();
         this.generateBoard();
     }
 
     private void generateBoard() {
-        this.initBoard();
         HashSet<Node> visitedNodes = new HashSet<>();
         List<Node> stack = new ArrayList<>();
         stack.add(start);
@@ -68,12 +68,19 @@ public class Board extends JPanel {
 
     private void initBoard() {
         this.board = new Node[this.boardSize][this.boardSize];
-        for (int i = 0; i < boardSize; i++) {
-            for (int j = 0; j < boardSize; j++) {
+        for (int i = 0; i < this.boardSize; i++) {
+            for (int j = 0; j < this.boardSize; j++) {
                 this.board[i][j] = new Node();
             }
         }
         this.setStartEnd();
+        this.addNeighbours();
+
+        this.setLayout(new GridLayout(this.boardSize, this.boardSize));
+        this.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        this.setBackground(Color.MAGENTA);
+    }
+    private void addNeighbours(){
         for (int i = 0; i < this.boardSize; i++) {
             for (int j = 0; j < this.boardSize; j++)  {
                 if (i != 0) {
@@ -90,11 +97,6 @@ public class Board extends JPanel {
                 }
             }
         }
-
-        this.setLayout(new GridLayout(boardSize, boardSize));
-        this.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-        this.setBackground(Color.MAGENTA);
-
     }
 
     private void setStartEnd() {
