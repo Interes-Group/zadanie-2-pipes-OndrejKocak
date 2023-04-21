@@ -72,7 +72,7 @@ public class GameLogic extends UniversalAdapter{
     }
 
     private void checkCorrectness(){
-        if(this.board.checkCorrectness()){
+        if(this.board.checkPath()){
             this.level++;
             this.initNewBoard();
             this.updateLevelLabel();

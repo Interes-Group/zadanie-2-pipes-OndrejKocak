@@ -59,8 +59,7 @@ public class Board extends JPanel {
     private void fillGrid(){
         for (int i = 0; i < this.boardSize; i++) {
             for (int j = 0; j < this.boardSize; j++) {
-                Node node = board[i][j];
-                this.add(node.getTile());
+                this.add(board[i][j].getTile());
             }
         }
     }
@@ -106,7 +105,7 @@ public class Board extends JPanel {
         this.finish.setState(State.FINISH);
     }
 
-    public boolean checkCorrectness(){
+    public boolean checkPath(){
         Direction nextDirection = this.start.getTile().getConnectionPoints().get(0);
         Node next = this.start.getNeighbour(nextDirection);
         while(next != null){
