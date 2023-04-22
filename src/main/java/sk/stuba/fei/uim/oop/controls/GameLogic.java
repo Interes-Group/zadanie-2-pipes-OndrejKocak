@@ -11,6 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
+
+
 public class GameLogic extends UniversalAdapter{
     private final JFrame mainFrame;
     private static final int INITIAL_BOARD_SIZE = 8;
@@ -100,6 +102,7 @@ public class GameLogic extends UniversalAdapter{
                 break;
             case KeyEvent.VK_ESCAPE:
                 this.mainFrame.dispose();
+                System.exit(0);
                 break;
             case KeyEvent.VK_ENTER:
                 this.checkCorrectness();
