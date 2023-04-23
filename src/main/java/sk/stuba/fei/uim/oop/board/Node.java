@@ -11,7 +11,6 @@ import java.util.Map;
 public class Node {
     @Getter
     private Tile tile;
-    @Getter
     private final Map<Direction, Node> neighbours;
     @Setter
     @Getter
